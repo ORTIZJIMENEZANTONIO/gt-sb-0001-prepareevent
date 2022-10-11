@@ -6,19 +6,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.WarehouseModule = void 0;
+exports.ComerEventsModule = void 0;
 const common_1 = require("@nestjs/common");
 const microservices_1 = require("@nestjs/microservices");
-const warehouse_service_1 = require("./warehouse.service");
-const warehouse_controller_1 = require("./warehouse.controller");
-let WarehouseModule = class WarehouseModule {
+const comer_events_service_1 = require("./comer-events.service");
+const comer_events_controller_1 = require("./comer-events.controller");
+let ComerEventsModule = class ComerEventsModule {
 };
-WarehouseModule = __decorate([
+ComerEventsModule = __decorate([
     (0, common_1.Module)({
         imports: [
             microservices_1.ClientsModule.register([
                 {
-                    name: "SERVICE_WAREHOUSE",
+                    name: "SERVICE_PREPAREEVENT",
                     transport: microservices_1.Transport.TCP,
                     options: {
                         host: "127.0.0.1",
@@ -27,9 +27,9 @@ WarehouseModule = __decorate([
                 },
             ]),
         ],
-        providers: [warehouse_service_1.WarehouseService],
-        controllers: [warehouse_controller_1.WarehouseController],
+        providers: [comer_events_service_1.ComerEventsService],
+        controllers: [comer_events_controller_1.ComerEventsController]
     })
-], WarehouseModule);
-exports.WarehouseModule = WarehouseModule;
-//# sourceMappingURL=warehouse.module.js.map
+], ComerEventsModule);
+exports.ComerEventsModule = ComerEventsModule;
+//# sourceMappingURL=comer-events.module.js.map

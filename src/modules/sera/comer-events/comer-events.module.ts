@@ -1,14 +1,14 @@
 import { Module } from "@nestjs/common";
 import { ClientsModule, Transport } from "@nestjs/microservices";
 
-import { WarehouseService } from "./warehouse.service";
-import { WarehouseController } from "./warehouse.controller";
+import { ComerEventsService } from './comer-events.service';
+import { ComerEventsController } from './comer-events.controller';
 
 @Module({
   imports: [
     ClientsModule.register([
       {
-        name: "SERVICE_WAREHOUSE",
+        name: "SERVICE_PREPAREEVENT",
         transport: Transport.TCP,
         options: {
           host: "127.0.0.1",
@@ -17,7 +17,7 @@ import { WarehouseController } from "./warehouse.controller";
       },
     ]),
   ],
-  providers: [WarehouseService],
-  controllers: [WarehouseController],
+  providers: [ComerEventsService],
+  controllers: [ComerEventsController]
 })
-export class WarehouseModule {}
+export class ComerEventsModule {}

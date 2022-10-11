@@ -13,8 +13,7 @@ const winston = require("winston");
 const path = require("path");
 const app_service_1 = require("./app.service");
 const app_controller_1 = require("./app.controller");
-const warehouse_module_1 = require("./modules/sera/warehouse/warehouse.module");
-const storehouse_module_1 = require("./modules/sera/storehouse/storehouse.module");
+const comer_events_module_1 = require("./modules/sera/comer-events/comer-events.module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -44,8 +43,7 @@ AppModule = __decorate([
                     new winston.transports.Console({ level: 'debug' }),
                 ],
             }),
-            warehouse_module_1.WarehouseModule,
-            storehouse_module_1.StorehouseModule,
+            comer_events_module_1.ComerEventsModule,
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],

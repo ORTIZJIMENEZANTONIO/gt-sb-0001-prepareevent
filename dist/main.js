@@ -9,7 +9,7 @@ async function bootstrap() {
     app.setGlobalPrefix('api/v1');
     const options = new swagger_1.DocumentBuilder()
         .setTitle("SB-0001")
-        .setDescription("Api Rest Sigebi")
+        .setDescription("MS prepareevent")
         .setVersion('1.0')
         .build();
     const document = swagger_1.SwaggerModule.createDocument(app, options);

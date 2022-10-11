@@ -7,6 +7,7 @@ import { AppService } from './app.service';
 import { AppController } from './app.controller';
 import { WarehouseModule } from './modules/sera/warehouse/warehouse.module'; 
 import { StorehouseModule } from './modules/sera/storehouse/storehouse.module'; 
+import { ComerEventsModule } from './modules/sera/comer-events/comer-events.module';
 
 @Module({
   imports: [
@@ -39,8 +40,7 @@ import { StorehouseModule } from './modules/sera/storehouse/storehouse.module';
         new winston.transports.Console({ level: 'debug' }),
       ],
     }),
-    WarehouseModule,
-    StorehouseModule,
+    ComerEventsModule,
     
   ],
   controllers: [AppController],
