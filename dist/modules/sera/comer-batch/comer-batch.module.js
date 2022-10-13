@@ -8,12 +8,25 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ComerBatchModule = void 0;
 const common_1 = require("@nestjs/common");
+const microservices_1 = require("@nestjs/microservices");
 const comer_batch_service_1 = require("./comer-batch.service");
 const comer_batch_controller_1 = require("./comer-batch.controller");
 let ComerBatchModule = class ComerBatchModule {
 };
 ComerBatchModule = __decorate([
     (0, common_1.Module)({
+        imports: [
+            microservices_1.ClientsModule.register([
+                {
+                    name: "SERVICE_PREPAREEVENT",
+                    transport: microservices_1.Transport.TCP,
+                    options: {
+                        host: "127.0.0.1",
+                        port: 3002,
+                    },
+                },
+            ]),
+        ],
         providers: [comer_batch_service_1.ComerBatchService],
         controllers: [comer_batch_controller_1.ComerBatchController]
     })

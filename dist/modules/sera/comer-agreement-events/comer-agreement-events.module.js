@@ -8,12 +8,25 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ComerAgreementEventsModule = void 0;
 const common_1 = require("@nestjs/common");
+const microservices_1 = require("@nestjs/microservices");
 const comer_agreement_events_service_1 = require("./comer-agreement-events.service");
 const comer_agreement_events_controller_1 = require("./comer-agreement-events.controller");
 let ComerAgreementEventsModule = class ComerAgreementEventsModule {
 };
 ComerAgreementEventsModule = __decorate([
     (0, common_1.Module)({
+        imports: [
+            microservices_1.ClientsModule.register([
+                {
+                    name: "SERVICE_PREPAREEVENT",
+                    transport: microservices_1.Transport.TCP,
+                    options: {
+                        host: "127.0.0.1",
+                        port: 3002,
+                    },
+                },
+            ]),
+        ],
         providers: [comer_agreement_events_service_1.ComerAgreementEventsService],
         controllers: [comer_agreement_events_controller_1.ComerAgreementEventsController]
     })

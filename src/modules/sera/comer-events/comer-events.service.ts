@@ -4,7 +4,6 @@ import { ClientProxy } from "@nestjs/microservices";
 import { PaginationDto } from "src/shared/dto/pagination.dto";
 import { ComerBatchDto } from "../comer-batch/dto/comer-batch.dto";
 import { ComerEventDto } from "./dto/comer-events.dto";
-import { UpdateComerEventDto } from "./dto/update-comer-events.entity";
 
 @Injectable()
 export class ComerEventsService {
