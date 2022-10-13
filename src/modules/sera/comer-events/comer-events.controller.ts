@@ -18,10 +18,11 @@ import {
   ApiQuery,
 } from "@nestjs/swagger";
 
-import { ComerEventsService } from "./comer-events.service";
 import { PaginationDto } from "src/shared/dto/pagination.dto";
 import { ComerEventDto } from "./dto/comer-events.dto";
 import { ComerBatchDto } from "../comer-batch/dto/comer-batch.dto";
+import { ComerEventsService } from "./comer-events.service";
+
 @ApiCreatedResponse()
 @Controller("comer-events")
 @ApiTags("comer-events")
@@ -66,7 +67,7 @@ export class ComerEventsController {
     type: ComerEventDto,
   })
   @Get("address")
-  async getComerEventByAddress( @Query() comer: ComerEventDto & PaginationDto) {
+  async getComerEventByAddress(@Query() comer: ComerEventDto & PaginationDto) {
     return await this.service.getComerEventByAddress(comer);
   }
 
@@ -102,7 +103,9 @@ export class ComerEventsController {
     type: ComerEventDto,
   })
   @Post("/tp-event-amd-not-sold")
-  async getComerEventByTpEvent(@Body() comerEvent: ComerEventDto & ComerBatchDto & PaginationDto) {
+  async getComerEventByTpEvent(
+    @Body() comerEvent: ComerEventDto & ComerBatchDto & PaginationDto
+  ) {
     return await this.service.getComerEventByTpEvent(comerEvent);
   }
 }

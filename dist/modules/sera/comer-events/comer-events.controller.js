@@ -15,9 +15,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ComerEventsController = void 0;
 const common_1 = require("@nestjs/common");
 const swagger_1 = require("@nestjs/swagger");
-const comer_events_service_1 = require("./comer-events.service");
 const pagination_dto_1 = require("../../../shared/dto/pagination.dto");
 const comer_events_dto_1 = require("./dto/comer-events.dto");
+const comer_events_service_1 = require("./comer-events.service");
 let ComerEventsController = class ComerEventsController {
     constructor(service) {
         this.service = service;
