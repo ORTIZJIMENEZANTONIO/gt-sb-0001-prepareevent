@@ -5,9 +5,13 @@ import * as path from 'path';
 
 import { AppService } from './app.service';
 import { AppController } from './app.controller';
-import { WarehouseModule } from './modules/sera/warehouse/warehouse.module'; 
-import { StorehouseModule } from './modules/sera/storehouse/storehouse.module'; 
 import { ComerEventsModule } from './modules/sera/comer-events/comer-events.module';
+import { ComerAdjudirecModule } from './modules/sera/comer-adjudirec/comer-adjudirec.module';
+import { ComerAgreementEventsModule } from './modules/sera/comer-agreement-events/comer-agreement-events.module';
+import { ComerClientModule } from './modules/sera/comer-client/comer-client.module';
+import { ComerPropertyByBatchModule } from './modules/sera/comer-property-by-batch/comer-property-by-batch.module';
+import { ComerRejectedPropertyModule } from './modules/sera/comer-rejected-property/comer-rejected-property.module';
+import { ComerBatchModule } from './modules/sera/comer-batch/comer-batch.module';
 
 @Module({
   imports: [
@@ -41,6 +45,12 @@ import { ComerEventsModule } from './modules/sera/comer-events/comer-events.modu
       ],
     }),
     ComerEventsModule,
+    ComerBatchModule,
+    ComerAdjudirecModule,
+    ComerAgreementEventsModule,
+    ComerClientModule,
+    ComerPropertyByBatchModule,
+    ComerRejectedPropertyModule,
     
   ],
   controllers: [AppController],

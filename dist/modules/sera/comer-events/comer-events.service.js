@@ -27,9 +27,20 @@ let ComerEventsService = class ComerEventsService {
         const pattern = { cmd: "getAllComerEvents" };
         return await this.proxy.send(pattern, pagination);
     }
-    async getComerEventByAddress(address) {
+    async getComerEventByAddress(comer) {
         const pattern = { cmd: "getComerEventByAddress" };
-        return await this.proxy.send(pattern, address);
+        const data = Object.assign({}, comer);
+        return await this.proxy.send(pattern, data);
+    }
+    async getComerEventByAddressAndId(comerEvent) {
+        const pattern = { cmd: "getComerEventByAddressAndId" };
+        const data = Object.assign({}, comerEvent);
+        return await this.proxy.send(pattern, data);
+    }
+    async getComerEventByTpEvent(comerEvent) {
+        const pattern = { cmd: "getComerEventByTpEvent" };
+        const data = Object.assign({}, comerEvent);
+        return await this.proxy.send(pattern, data);
     }
 };
 ComerEventsService = __decorate([

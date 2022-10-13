@@ -8,7 +8,7 @@ async function bootstrap() {
     const app = await core_1.NestFactory.create(app_module_1.AppModule);
     app.setGlobalPrefix('api/v1');
     const options = new swagger_1.DocumentBuilder()
-        .setTitle("SB-0001")
+        .setTitle("MS-SB-0001-PREPAREEVENT")
         .setDescription("MS prepareevent")
         .setVersion('1.0')
         .build();

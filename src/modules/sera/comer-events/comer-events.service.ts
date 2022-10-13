@@ -2,6 +2,7 @@ import { Injectable, Inject } from "@nestjs/common";
 import { ClientProxy } from "@nestjs/microservices";
 
 import { PaginationDto } from "src/shared/dto/pagination.dto";
+import { ComerBatchDto } from "../comer-batch/dto/comer-batch.dto";
 import { ComerEventDto } from "./dto/comer-events.dto";
 import { UpdateComerEventDto } from "./dto/update-comer-events.entity";
 
@@ -21,8 +22,21 @@ export class ComerEventsService {
     return await this.proxy.send(pattern, pagination);
   }
 
-  async getComerEventByAddress(address: string) {
+  async getComerEventByAddress(comer: ComerEventDto & PaginationDto) {
     const pattern = { cmd: "getComerEventByAddress" };
-    return await this.proxy.send(pattern, address);
+    const data = { ...comer };
+    return await this.proxy.send(pattern, data);
+  }
+
+  async getComerEventByAddressAndId(comerEvent: ComerEventDto) {
+    const pattern = { cmd: "getComerEventByAddressAndId" };
+    const data = { ...comerEvent }
+    return await this.proxy.send(pattern, data);
+  }
+
+  async getComerEventByTpEvent( comerEvent: ComerEventDto & ComerBatchDto & PaginationDto) {
+    const pattern = { cmd: "getComerEventByTpEvent" };
+    const data = { ...comerEvent }
+    return await this.proxy.send(pattern, data);
   }
 }

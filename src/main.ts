@@ -8,7 +8,7 @@ async function bootstrap() {
   app.setGlobalPrefix('api/v1');
 
   const options = new DocumentBuilder()
-    .setTitle("SB-0001")
+    .setTitle("MS-SB-0001-PREPAREEVENT")
     .setDescription("MS prepareevent")
     .setVersion('1.0')
     .build();
