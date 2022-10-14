@@ -19,4 +19,9 @@ export class ComerAdjudirecService {
     const pattern = { cmd: "getAllComersAdjudirec" };
     return await this.proxy.send(pattern, pagination);
   }
+
+  async deleteComerAdjudirec(comer: ComerAdjudirecDto) {
+    const pattern = { cmd: "deleteComerAdjudirec" };
+    return await this.proxy.send(pattern, comer);
+  }
 }

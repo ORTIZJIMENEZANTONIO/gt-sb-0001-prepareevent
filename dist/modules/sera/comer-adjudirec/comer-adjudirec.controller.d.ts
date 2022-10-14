@@ -6,4 +6,5 @@ export declare class ComerAdjudirecController {
     constructor(service: ComerAdjudirecService);
     createComerAdjudirec(comer: ComerAdjudirecDto): Promise<import("rxjs").Observable<any>>;
     getAllComersAdjudirec(pagination: PaginationDto): Promise<import("rxjs").Observable<any>>;
+    deleteComerAdjudirec(comer: ComerAdjudirecDto): Promise<import("rxjs").Observable<any>>;
 }

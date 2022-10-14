@@ -12,30 +12,22 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ComerAdjudirecService = void 0;
+exports.MandateFunctionService = void 0;
 const common_1 = require("@nestjs/common");
 const microservices_1 = require("@nestjs/microservices");
-let ComerAdjudirecService = class ComerAdjudirecService {
+let MandateFunctionService = class MandateFunctionService {
     constructor(proxy) {
         this.proxy = proxy;
     }
-    async createComerAdjudirec(comer) {
-        const pattern = { cmd: "createComerAdjudirec" };
-        return await this.proxy.send(pattern, comer);
-    }
-    async getAllComersAdjudirec(pagination) {
-        const pattern = { cmd: "getAllComersAdjudirec" };
-        return await this.proxy.send(pattern, pagination);
-    }
-    async deleteComerAdjudirec(comer) {
-        const pattern = { cmd: "deleteComerAdjudirec" };
-        return await this.proxy.send(pattern, comer);
+    async updateMandate(params) {
+        const pattern = { cmd: "updateMandate" };
+        return await this.proxy.send(pattern, params);
     }
 };
-ComerAdjudirecService = __decorate([
+MandateFunctionService = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, common_1.Inject)("SERVICE_PREPAREEVENT")),
     __metadata("design:paramtypes", [microservices_1.ClientProxy])
-], ComerAdjudirecService);
-exports.ComerAdjudirecService = ComerAdjudirecService;
-//# sourceMappingURL=comer-adjudirec.service.js.map
+], MandateFunctionService);
+exports.MandateFunctionService = MandateFunctionService;
+//# sourceMappingURL=mandate-function.service.js.map

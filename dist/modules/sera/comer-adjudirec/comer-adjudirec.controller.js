@@ -28,6 +28,9 @@ let ComerAdjudirecController = class ComerAdjudirecController {
     async getAllComersAdjudirec(pagination) {
         return await this.service.getAllComersAdjudirec(pagination);
     }
+    async deleteComerAdjudirec(comer) {
+        return await this.service.deleteComerAdjudirec(comer);
+    }
 };
 __decorate([
     (0, swagger_1.ApiOperation)({ summary: "Guardar nueva Direccióne" }),
@@ -59,6 +62,19 @@ __decorate([
     __metadata("design:paramtypes", [pagination_dto_1.PaginationDto]),
     __metadata("design:returntype", Promise)
 ], ComerAdjudirecController.prototype, "getAllComersAdjudirec", null);
+__decorate([
+    (0, swagger_1.ApiOperation)({ summary: "Obtener lista de todas las almacenes" }),
+    (0, swagger_1.ApiResponse)({
+        status: 200,
+        description: "Lista de Direcciónes existenetes",
+        type: comer_adjudirec_dto_1.ComerAdjudirecDto,
+    }),
+    (0, common_1.Delete)(),
+    __param(0, (0, common_1.Query)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [comer_adjudirec_dto_1.ComerAdjudirecDto]),
+    __metadata("design:returntype", Promise)
+], ComerAdjudirecController.prototype, "deleteComerAdjudirec", null);
 ComerAdjudirecController = __decorate([
     (0, swagger_1.ApiCreatedResponse)(),
     (0, common_1.Controller)('comer-adjudirec'),

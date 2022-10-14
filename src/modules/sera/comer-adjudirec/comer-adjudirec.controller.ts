@@ -53,4 +53,15 @@ export class ComerAdjudirecController {
   async getAllComersAdjudirec(@Query() pagination: PaginationDto) {
     return await this.service.getAllComersAdjudirec(pagination);
   }
+
+  @ApiOperation({ summary: "Obtener lista de todas las almacenes" })
+  @ApiResponse({
+    status: 200,
+    description: "Lista de Direcciónes existenetes",
+    type: ComerAdjudirecDto,
+  })
+  @Delete()
+  async deleteComerAdjudirec(@Query() comer: ComerAdjudirecDto) {
+    return await this.service.deleteComerAdjudirec(comer);
+  }
 }
