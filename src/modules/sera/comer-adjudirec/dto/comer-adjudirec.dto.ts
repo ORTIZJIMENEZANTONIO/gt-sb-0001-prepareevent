@@ -3,7 +3,7 @@ import { ApiProperty } from "@nestjs/swagger";
 export class ComerAdjudirecDto {
 
   @ApiProperty({ example: "ex" })
-  eventId: string;
+  eventId: number;
 
   committee: string | null;
 
@@ -21,9 +21,9 @@ export class ComerAdjudirecDto {
 
   observation: string | null;
 
-  valudi: string | null;
+  valudi: number | null;
 
-  amountDis: string | null;
+  amountDis: number | null;
 
   tendered: string | null;
 
@@ -41,7 +41,7 @@ export class ComerAdjudirecDto {
 
   bookValue: string | null;
 
-  valMaxUdi: string | null;
+  valMaxUdi: number | null;
 
   cause: string | null;
 }
