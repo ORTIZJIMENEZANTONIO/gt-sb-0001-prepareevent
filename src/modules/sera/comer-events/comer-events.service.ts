@@ -2,7 +2,7 @@ import { Injectable, Inject } from "@nestjs/common";
 import { ClientProxy } from "@nestjs/microservices";
 
 import { PaginationDto } from "src/shared/dto/pagination.dto";
-import { ComerBatchDto } from "../comer-batch/dto/comer-batch.dto";
+import { ComerLotsDto } from "../comer-batch/dto/comer-batch.dto";
 import { ComerEventDto } from "./dto/comer-events.dto";
 
 @Injectable()
@@ -33,7 +33,7 @@ export class ComerEventsService {
     return await this.proxy.send(pattern, data);
   }
 
-  async getComerEventByTpEvent( comerEvent: ComerEventDto & ComerBatchDto & PaginationDto) {
+  async getComerEventByTpEvent( comerEvent: ComerEventDto & ComerLotsDto & PaginationDto) {
     const pattern = { cmd: "getComerEventByTpEvent" };
     const data = { ...comerEvent }
     return await this.proxy.send(pattern, data);

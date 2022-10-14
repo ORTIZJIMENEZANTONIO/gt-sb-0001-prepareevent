@@ -20,7 +20,7 @@ import {
 
 import { PaginationDto } from "src/shared/dto/pagination.dto";
 import { ComerEventDto } from "./dto/comer-events.dto";
-import { ComerBatchDto } from "../comer-batch/dto/comer-batch.dto";
+import { ComerLotsDto } from "../comer-batch/dto/comer-batch.dto";
 import { ComerEventsService } from "./comer-events.service";
 
 @ApiCreatedResponse()
@@ -104,7 +104,7 @@ export class ComerEventsController {
   })
   @Post("/tp-event-amd-not-sold")
   async getComerEventByTpEvent(
-    @Body() comerEvent: ComerEventDto & ComerBatchDto & PaginationDto
+    @Body() comerEvent: ComerEventDto & ComerLotsDto & PaginationDto
   ) {
     return await this.service.getComerEventByTpEvent(comerEvent);
   }
