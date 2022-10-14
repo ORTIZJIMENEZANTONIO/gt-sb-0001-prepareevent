@@ -27,6 +27,10 @@ let ComerBatchService = class ComerBatchService {
         const pattern = { cmd: "getAllComersLot" };
         return await this.proxy.send(pattern, pagination);
     }
+    async getComerLotByEventId(comer) {
+        const pattern = { cmd: "getComerLotByEventId" };
+        return await this.proxy.send(pattern, comer);
+    }
 };
 ComerBatchService = __decorate([
     (0, common_1.Injectable)(),

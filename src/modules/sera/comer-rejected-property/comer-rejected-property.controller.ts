@@ -21,7 +21,7 @@ import {
 import { PaginationDto } from "src/shared/dto/pagination.dto";
 import { ComerRejectedPropertyService } from "./comer-rejected-property.service";
 import { ComerRejectedGoodDto } from "./dto/comer-rejected-property.dto";
-@Controller('comer-rejected-property')
+@Controller("comer-rejected-property")
 export class ComerRejectedPropertyController {
   constructor(private readonly service: ComerRejectedPropertyService) {}
 
@@ -49,5 +49,33 @@ export class ComerRejectedPropertyController {
   @Get()
   async getAllComersRejectedProperties(@Query() pagination: PaginationDto) {
     return await this.service.getAllComersRejectedProperties(pagination);
+  }
+
+  @ApiOperation({ summary: "Obtener lista de todas las almacenes" })
+  @ApiQuery({
+    name: "eventId",
+    type: Number,
+    description: "Dirección",
+  })
+  @ApiQuery({
+    name: "inicio",
+    type: Number,
+    description: "Dirección",
+  })
+  @ApiQuery({
+    name: "pageSize",
+    type: Number,
+    description: "Dirección",
+  })
+  @ApiResponse({
+    status: 200,
+    description: "Lista de Direcciónes existenetes",
+    type: ComerRejectedGoodDto,
+  })
+  @Get("/event-id")
+  async getComerRejectedPropertyByEventId(
+    @Query() comer: PaginationDto & ComerRejectedGoodDto
+  ) {
+    return await this.service.getComerRejectedPropertyByEventId(comer);
   }
 }

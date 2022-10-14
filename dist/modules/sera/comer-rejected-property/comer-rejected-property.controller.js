@@ -28,6 +28,9 @@ let ComerRejectedPropertyController = class ComerRejectedPropertyController {
     async getAllComersRejectedProperties(pagination) {
         return await this.service.getAllComersRejectedProperties(pagination);
     }
+    async getComerRejectedPropertyByEventId(comer) {
+        return await this.service.getComerRejectedPropertyByEventId(comer);
+    }
 };
 __decorate([
     (0, swagger_1.ApiOperation)({ summary: "Guardar nueva Direccióne" }),
@@ -59,8 +62,36 @@ __decorate([
     __metadata("design:paramtypes", [pagination_dto_1.PaginationDto]),
     __metadata("design:returntype", Promise)
 ], ComerRejectedPropertyController.prototype, "getAllComersRejectedProperties", null);
+__decorate([
+    (0, swagger_1.ApiOperation)({ summary: "Obtener lista de todas las almacenes" }),
+    (0, swagger_1.ApiQuery)({
+        name: "eventId",
+        type: Number,
+        description: "Dirección",
+    }),
+    (0, swagger_1.ApiQuery)({
+        name: "inicio",
+        type: Number,
+        description: "Dirección",
+    }),
+    (0, swagger_1.ApiQuery)({
+        name: "pageSize",
+        type: Number,
+        description: "Dirección",
+    }),
+    (0, swagger_1.ApiResponse)({
+        status: 200,
+        description: "Lista de Direcciónes existenetes",
+        type: comer_rejected_property_dto_1.ComerRejectedGoodDto,
+    }),
+    (0, common_1.Get)("/event-id"),
+    __param(0, (0, common_1.Query)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], ComerRejectedPropertyController.prototype, "getComerRejectedPropertyByEventId", null);
 ComerRejectedPropertyController = __decorate([
-    (0, common_1.Controller)('comer-rejected-property'),
+    (0, common_1.Controller)("comer-rejected-property"),
     __metadata("design:paramtypes", [comer_rejected_property_service_1.ComerRejectedPropertyService])
 ], ComerRejectedPropertyController);
 exports.ComerRejectedPropertyController = ComerRejectedPropertyController;

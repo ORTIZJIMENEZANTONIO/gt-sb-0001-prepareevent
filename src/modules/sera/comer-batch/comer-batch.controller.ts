@@ -53,4 +53,32 @@ export class ComerBatchController {
   async getAllComersLot(@Query() pagination: PaginationDto) {
     return await this.service.getAllComersLot(pagination);
   }
+
+  @ApiOperation({ summary: "Obtener lista de todas las almacenes" })
+  @ApiQuery({
+    name: "eventId",
+    type: Number,
+    description: "Id del evento",
+  })
+  @ApiQuery({
+    name: "inicio",
+    type: Number,
+    required: false,
+    description: "inicio",
+  })
+  @ApiQuery({
+    name: "pageSize",
+    type: Number,
+    required: false,
+    description: "Size",
+  })
+  @ApiResponse({
+    status: 200,
+    description: "Lista de Direcciónes existenetes",
+    type: ComerLotsDto,
+  })
+  @Get("/by-event-id")
+  async getComerLotByEventId(@Query() comer: ComerLotsDto & PaginationDto) {
+    return await this.service.getComerLotByEventId(comer);
+  }
 }

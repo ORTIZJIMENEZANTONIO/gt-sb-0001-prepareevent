@@ -28,6 +28,9 @@ let ComerBatchController = class ComerBatchController {
     async getAllComersLot(pagination) {
         return await this.service.getAllComersLot(pagination);
     }
+    async getComerLotByEventId(comer) {
+        return await this.service.getComerLotByEventId(comer);
+    }
 };
 __decorate([
     (0, swagger_1.ApiOperation)({ summary: "Guardar nueva Direccióne" }),
@@ -59,6 +62,36 @@ __decorate([
     __metadata("design:paramtypes", [pagination_dto_1.PaginationDto]),
     __metadata("design:returntype", Promise)
 ], ComerBatchController.prototype, "getAllComersLot", null);
+__decorate([
+    (0, swagger_1.ApiOperation)({ summary: "Obtener lista de todas las almacenes" }),
+    (0, swagger_1.ApiQuery)({
+        name: "eventId",
+        type: Number,
+        description: "Id del evento",
+    }),
+    (0, swagger_1.ApiQuery)({
+        name: "inicio",
+        type: Number,
+        required: false,
+        description: "inicio",
+    }),
+    (0, swagger_1.ApiQuery)({
+        name: "pageSize",
+        type: Number,
+        required: false,
+        description: "Size",
+    }),
+    (0, swagger_1.ApiResponse)({
+        status: 200,
+        description: "Lista de Direcciónes existenetes",
+        type: comer_batch_dto_1.ComerLotsDto,
+    }),
+    (0, common_1.Get)("/by-event-id"),
+    __param(0, (0, common_1.Query)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], ComerBatchController.prototype, "getComerLotByEventId", null);
 ComerBatchController = __decorate([
     (0, swagger_1.ApiCreatedResponse)(),
     (0, common_1.Controller)('comer-batch'),

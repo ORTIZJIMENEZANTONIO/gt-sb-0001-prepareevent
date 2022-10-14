@@ -6,4 +6,5 @@ export declare class ComerRejectedPropertyController {
     constructor(service: ComerRejectedPropertyService);
     createComerRejectedProperty(comerEvent: ComerRejectedGoodDto): Promise<import("rxjs").Observable<any>>;
     getAllComersRejectedProperties(pagination: PaginationDto): Promise<import("rxjs").Observable<any>>;
+    getComerRejectedPropertyByEventId(comer: PaginationDto & ComerRejectedGoodDto): Promise<import("rxjs").Observable<any>>;
 }

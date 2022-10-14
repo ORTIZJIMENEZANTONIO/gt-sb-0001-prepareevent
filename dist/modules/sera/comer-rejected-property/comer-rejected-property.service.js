@@ -27,6 +27,10 @@ let ComerRejectedPropertyService = class ComerRejectedPropertyService {
         const pattern = { cmd: "getAllComersRejectedProperties" };
         return await this.proxy.send(pattern, pagination);
     }
+    async getComerRejectedPropertyByEventId(comer) {
+        const pattern = { cmd: "getComerRejectedPropertyByEventId" };
+        return await this.proxy.send(pattern, comer);
+    }
 };
 ComerRejectedPropertyService = __decorate([
     (0, common_1.Injectable)(),

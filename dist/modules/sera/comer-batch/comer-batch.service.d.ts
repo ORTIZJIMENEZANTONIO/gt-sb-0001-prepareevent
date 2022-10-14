@@ -6,4 +6,5 @@ export declare class ComerBatchService {
     constructor(proxy: ClientProxy);
     createComerLot(comerEvent: ComerLotsDto): Promise<import("rxjs").Observable<any>>;
     getAllComersLot(pagination: PaginationDto): Promise<import("rxjs").Observable<any>>;
+    getComerLotByEventId(comer: ComerLotsDto & PaginationDto): Promise<import("rxjs").Observable<any>>;
 }

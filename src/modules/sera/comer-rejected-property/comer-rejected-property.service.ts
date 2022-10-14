@@ -19,4 +19,9 @@ export class ComerRejectedPropertyService {
     const pattern = { cmd: "getAllComersRejectedProperties" };
     return await this.proxy.send(pattern, pagination);
   }
+
+  async getComerRejectedPropertyByEventId(comer: PaginationDto & ComerRejectedGoodDto) {
+    const pattern = { cmd: "getComerRejectedPropertyByEventId" };
+    return await this.proxy.send(pattern, comer);
+  }
 }

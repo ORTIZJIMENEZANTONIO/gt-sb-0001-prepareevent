@@ -19,4 +19,9 @@ export class ComerBatchService {
     return await this.proxy.send(pattern, pagination);
   }
 
+  async getComerLotByEventId(comer: ComerLotsDto & PaginationDto) {
+    const pattern = { cmd: "getComerLotByEventId" };
+    return await this.proxy.send(pattern, comer);
+  }
+
 }
