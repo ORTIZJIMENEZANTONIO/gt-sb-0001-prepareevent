@@ -1,4 +1,56 @@
-import { Controller } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Put,
+  Delete,
+  Body,
+  Param,
+  Query,
+} from "@nestjs/common";
+import {
+  ApiOperation,
+  ApiResponse,
+  ApiTags,
+  ApiCreatedResponse,
+  ApiParam,
+  ApiBody,
+  ApiQuery,
+} from "@nestjs/swagger";
 
+import { PaginationDto } from "src/shared/dto/pagination.dto";
+import { ComerBatchService } from "./comer-batch.service";
+import { ComerLotsDto } from "./dto/comer-batch.dto";
+
+@ApiCreatedResponse()
 @Controller('comer-batch')
-export class ComerBatchController {}
+@ApiTags("comer-batch")
+export class ComerBatchController {
+  constructor(private readonly service: ComerBatchService) {}
+
+  @ApiOperation({ summary: "Guardar nueva Direccióne" })
+  @ApiBody({
+    type: ComerLotsDto,
+    description: "Información de la Dirección a guardar",
+  })
+  @ApiResponse({
+    status: 200,
+    description: "Guarda Dirección",
+    type: ComerLotsDto,
+  })
+  @Post()
+  async createComerLot(@Body() comer: ComerLotsDto) {
+    return await this.service.createComerLot(comer);
+  }
+
+  @ApiOperation({ summary: "Obtener lista de todas las almacenes" })
+  @ApiResponse({
+    status: 200,
+    description: "Lista de Direcciónes existenetes",
+    type: ComerLotsDto,
+  })
+  @Get()
+  async getAllComersLot(@Query() pagination: PaginationDto) {
+    return await this.service.getAllComersLot(pagination);
+  }
+}

@@ -1,4 +1,22 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Inject } from "@nestjs/common";
+import { ClientProxy } from "@nestjs/microservices";
 
+import { PaginationDto } from "src/shared/dto/pagination.dto";
+import { ComerLotsDto } from "./dto/comer-batch.dto";
 @Injectable()
-export class ComerBatchService {}
+export class ComerBatchService {
+  constructor(
+    @Inject("SERVICE_PREPAREEVENT") private readonly proxy: ClientProxy
+  ) {}
+
+  async createComerLot(comerEvent: ComerLotsDto) {
+    const pattern = { cmd: "createComerEvent" };
+    return await this.proxy.send(pattern, comerEvent);
+  }
+
+  async getAllComersLot(pagination: PaginationDto) {
+    const pattern = { cmd: "getAllComersLot" };
+    return await this.proxy.send(pattern, pagination);
+  }
+
+}
