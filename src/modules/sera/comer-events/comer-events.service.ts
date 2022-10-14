@@ -4,6 +4,7 @@ import { ClientProxy } from "@nestjs/microservices";
 import { PaginationDto } from "src/shared/dto/pagination.dto";
 import { ComerLotsDto } from "../comer-batch/dto/comer-batch.dto";
 import { ComerEventDto } from "./dto/comer-events.dto";
+import { UpdateComerEventDto } from "./dto/update-comer-events.entity";
 
 @Injectable()
 export class ComerEventsService {
@@ -27,7 +28,7 @@ export class ComerEventsService {
     return await this.proxy.send(pattern, data);
   }
 
-  async getComerEventByAddressAndId(comerEvent: ComerEventDto) {
+  async getComerEventByAddressAndId(comerEvent: UpdateComerEventDto) {
     const pattern = { cmd: "getComerEventByAddressAndId" };
     const data = { ...comerEvent }
     return await this.proxy.send(pattern, data);

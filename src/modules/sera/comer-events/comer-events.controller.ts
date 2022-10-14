@@ -22,6 +22,7 @@ import { PaginationDto } from "src/shared/dto/pagination.dto";
 import { ComerEventDto } from "./dto/comer-events.dto";
 import { ComerLotsDto } from "../comer-batch/dto/comer-batch.dto";
 import { ComerEventsService } from "./comer-events.service";
+import { UpdateComerEventDto } from "./dto/update-comer-events.entity";
 
 @ApiCreatedResponse()
 @Controller("comer-events")
@@ -88,7 +89,7 @@ export class ComerEventsController {
     type: ComerEventDto,
   })
   @Get("adress-and-eventid")
-  async getComerEventByAddressAndId(@Query() comer: ComerEventDto) {
+  async getComerEventByAddressAndId(@Query() comer: UpdateComerEventDto) {
     return await this.service.getComerEventByAddressAndId(comer);
   }
 

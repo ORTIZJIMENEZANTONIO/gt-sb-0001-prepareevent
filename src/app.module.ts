@@ -13,6 +13,7 @@ import { ComerPropertyByBatchModule } from './modules/sera/comer-property-by-bat
 import { ComerRejectedPropertyModule } from './modules/sera/comer-rejected-property/comer-rejected-property.module';
 import { ComerBatchModule } from './modules/sera/comer-batch/comer-batch.module';
 import { MandateFunctionModule } from './modules/sera/mandate-function/mandate-function.module';
+import { FileUtilModule } from './modules/sera/file-util/file-util.module';
 
 @Module({
   imports: [
@@ -53,6 +54,7 @@ import { MandateFunctionModule } from './modules/sera/mandate-function/mandate-f
     ComerPropertyByBatchModule,
     ComerRejectedPropertyModule,
     MandateFunctionModule,
+    FileUtilModule,
     
   ],
   controllers: [AppController],
