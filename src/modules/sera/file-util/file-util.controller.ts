@@ -17,6 +17,7 @@ import {
   ApiBody,
   ApiQuery,
 } from "@nestjs/swagger";
+import { query } from "express";
 
 import { FileUtilService } from "./file-util.service";
 
@@ -29,5 +30,18 @@ export class FileUtilController {
   @Get()
   async createComerClient() {
     return await this.service.createXlsx();
+  }
+
+  @Get("third-file/:eventId/:fileName")
+  async createThirdFile(
+    @Param("eventId") eventId: number,
+    @Param("fileName") fileName: string
+  ) {
+    return await this.service.createThirdFile(eventId, fileName);
+  }
+
+  @Post("/calculate-good-price")
+  async calculateGoodPrice(@Body() params: { eventId: number; lotId: number }) {
+    return await this.service.calculateGoodPrice(params);
   }
 }

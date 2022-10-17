@@ -11,4 +11,14 @@ export class FileUtilService {
     const pattern = { cmd: "createXlsx" };
     return await this.proxy.send(pattern, {});
   }
+
+  async createThirdFile( eventId: number, fileName: string) {
+    const pattern = { cmd: "createThirdFile" };
+    return await this.proxy.send(pattern, {eventId, fileName});
+  }
+
+  async calculateGoodPrice( params: { eventId: number; lotId: number }) {
+    const pattern = { cmd: "calculateGoodPrice" };
+    return await this.proxy.send(pattern, params);
+  }
 }
