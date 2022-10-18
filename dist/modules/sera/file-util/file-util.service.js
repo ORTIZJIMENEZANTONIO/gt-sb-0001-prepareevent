@@ -27,6 +27,10 @@ let FileUtilService = class FileUtilService {
         const pattern = { cmd: "createThirdFile" };
         return await this.proxy.send(pattern, { eventId, fileName });
     }
+    async createThirdBaseFile(fileName, eventNumber, bankName) {
+        const pattern = { cmd: "createThirdBaseFile" };
+        return await this.proxy.send(pattern, { fileName, eventNumber, bankName });
+    }
     async calculateGoodPrice(params) {
         const pattern = { cmd: "calculateGoodPrice" };
         return await this.proxy.send(pattern, params);

@@ -7,6 +7,7 @@ import {
   Body,
   Param,
   Query,
+  Res,
 } from "@nestjs/common";
 import {
   ApiOperation,
@@ -18,6 +19,10 @@ import {
   ApiQuery,
 } from "@nestjs/swagger";
 import { query } from "express";
+
+import { Readable } from "stream";
+import { readFileSync } from "fs";
+import { Response } from "express";
 
 import { FileUtilService } from "./file-util.service";
 
@@ -32,12 +37,38 @@ export class FileUtilController {
     return await this.service.createXlsx();
   }
 
-  @Get("third-file/:eventId/:fileName")
-  async createThirdFile(
-    @Param("eventId") eventId: number,
-    @Param("fileName") fileName: string
+  @Post("/third-file")
+  async createThirdFile(@Body() params: { eventId: number; fileName: string }) {
+    return await this.service.createThirdFile(params.eventId, params.fileName);
+  }
+
+  @Post("/third-base-file")
+  async createThirdBaseFile(
+    @Body() params: { fileName: string, eventNumber: number, bankName: string }
   ) {
-    return await this.service.createThirdFile(eventId, fileName);
+    return await this.service.createThirdBaseFile(
+      params.fileName,
+      params.eventNumber,
+      params.bankName
+    );
+    /*
+
+    if (fileData) {
+      const buffer = readFileSync("file");
+
+      const stream = new Readable();
+      stream.push(buffer);
+      stream.push(null);
+
+      res.set({
+        "Content-Type":
+          "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        "Content-Length": buffer.length,
+      });
+      stream.pipe(res);
+    }
+    return { statusCode: 404,message: "Data not found" }
+    */
   }
 
   @Post("/calculate-good-price")

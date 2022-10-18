@@ -23,8 +23,11 @@ let FileUtilController = class FileUtilController {
     async createComerClient() {
         return await this.service.createXlsx();
     }
-    async createThirdFile(eventId, fileName) {
-        return await this.service.createThirdFile(eventId, fileName);
+    async createThirdFile(params) {
+        return await this.service.createThirdFile(params.eventId, params.fileName);
+    }
+    async createThirdBaseFile(params) {
+        return await this.service.createThirdBaseFile(params.fileName, params.eventNumber, params.bankName);
     }
     async calculateGoodPrice(params) {
         return await this.service.calculateGoodPrice(params);
@@ -37,13 +40,19 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], FileUtilController.prototype, "createComerClient", null);
 __decorate([
-    (0, common_1.Get)("third-file/:eventId/:fileName"),
-    __param(0, (0, common_1.Param)("eventId")),
-    __param(1, (0, common_1.Param)("fileName")),
+    (0, common_1.Post)("/third-file"),
+    __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Number, String]),
+    __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
 ], FileUtilController.prototype, "createThirdFile", null);
+__decorate([
+    (0, common_1.Post)("/third-base-file"),
+    __param(0, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], FileUtilController.prototype, "createThirdBaseFile", null);
 __decorate([
     (0, common_1.Post)("/calculate-good-price"),
     __param(0, (0, common_1.Body)()),

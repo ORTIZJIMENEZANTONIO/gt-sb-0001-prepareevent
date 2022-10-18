@@ -7,17 +7,26 @@ export class FileUtilService {
     @Inject("SERVICE_PREPAREEVENT") private readonly proxy: ClientProxy
   ) {}
 
-  async createXlsx( ) {
+  async createXlsx() {
     const pattern = { cmd: "createXlsx" };
     return await this.proxy.send(pattern, {});
   }
 
-  async createThirdFile( eventId: number, fileName: string) {
+  async createThirdFile(eventId: number, fileName: string) {
     const pattern = { cmd: "createThirdFile" };
-    return await this.proxy.send(pattern, {eventId, fileName});
+    return await this.proxy.send(pattern, { eventId, fileName });
   }
 
-  async calculateGoodPrice( params: { eventId: number; lotId: number }) {
+  async createThirdBaseFile(
+    fileName: string,
+    eventNumber: number,
+    bankName: string
+  ) {
+    const pattern = { cmd: "createThirdBaseFile" };
+    return await this.proxy.send(pattern, { fileName, eventNumber, bankName });
+  }
+
+  async calculateGoodPrice(params: { eventId: number; lotId: number }) {
     const pattern = { cmd: "calculateGoodPrice" };
     return await this.proxy.send(pattern, params);
   }
