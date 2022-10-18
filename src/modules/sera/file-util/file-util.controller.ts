@@ -20,11 +20,10 @@ import {
 } from "@nestjs/swagger";
 import { query } from "express";
 
-import { Readable } from "stream";
-import { readFileSync } from "fs";
-import { Response } from "express";
-
 import { FileUtilService } from "./file-util.service";
+import { ThirdFileDto } from "./dto/third-file.dto";
+import { GoodPriceDto } from "./dto/good-price.dto";
+import { ThirdBaseFileDto } from "./dto/third-base-file.dto";
 
 @ApiCreatedResponse()
 @Controller("file-util")
@@ -32,20 +31,31 @@ import { FileUtilService } from "./file-util.service";
 export class FileUtilController {
   constructor(private readonly service: FileUtilService) {}
 
-  @Get()
-  async createComerClient() {
-    return await this.service.createXlsx();
-  }
-
+  @ApiOperation({ summary: "Obtiene archivo excel" })
+  @ApiBody({
+    type: ThirdFileDto,
+    description: "createThirdFile",
+  })
+  @ApiResponse({
+    status: 200,
+    description: "Retorna path del archivo",
+  })
   @Post("/third-file")
-  async createThirdFile(@Body() params: { eventId: number; fileName: string }) {
+  async createThirdFile(@Body() params: ThirdFileDto) {
     return await this.service.createThirdFile(params.eventId, params.fileName);
   }
 
+  @ApiOperation({ summary: "Obtiene archivo excel" })
+  @ApiBody({
+    type: ThirdBaseFileDto,
+    description: "createThirdBaseFile",
+  })
+  @ApiResponse({
+    status: 200,
+    description: "Retorna path del archivo",
+  })
   @Post("/third-base-file")
-  async createThirdBaseFile(
-    @Body() params: { fileName: string, eventNumber: number, bankName: string }
-  ) {
+  async createThirdBaseFile(@Body() params: ThirdBaseFileDto) {
     return await this.service.createThirdBaseFile(
       params.fileName,
       params.eventNumber,
@@ -71,8 +81,17 @@ export class FileUtilController {
     */
   }
 
+  @ApiOperation({ summary: "Obtiene archivo excel con precio de bienes" })
+  @ApiBody({
+    type: GoodPriceDto,
+    description: "calculateGoodPrice",
+  })
+  @ApiResponse({
+    status: 200,
+    description: "Retorna path del archivo",
+  })
   @Post("/calculate-good-price")
-  async calculateGoodPrice(@Body() params: { eventId: number; lotId: number }) {
+  async calculateGoodPrice(@Body() params: GoodPriceDto) {
     return await this.service.calculateGoodPrice(params);
   }
 }

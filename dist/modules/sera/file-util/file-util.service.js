@@ -19,10 +19,6 @@ let FileUtilService = class FileUtilService {
     constructor(proxy) {
         this.proxy = proxy;
     }
-    async createXlsx() {
-        const pattern = { cmd: "createXlsx" };
-        return await this.proxy.send(pattern, {});
-    }
     async createThirdFile(eventId, fileName) {
         const pattern = { cmd: "createThirdFile" };
         return await this.proxy.send(pattern, { eventId, fileName });
