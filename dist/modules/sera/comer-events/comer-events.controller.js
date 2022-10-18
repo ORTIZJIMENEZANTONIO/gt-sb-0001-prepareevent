@@ -18,6 +18,7 @@ const swagger_1 = require("@nestjs/swagger");
 const pagination_dto_1 = require("../../../shared/dto/pagination.dto");
 const comer_events_dto_1 = require("./dto/comer-events.dto");
 const comer_events_service_1 = require("./comer-events.service");
+const update_comer_events_entity_1 = require("./dto/update-comer-events.entity");
 let ComerEventsController = class ComerEventsController {
     constructor(service) {
         this.service = service;
@@ -106,7 +107,7 @@ __decorate([
     (0, common_1.Get)("adress-and-eventid"),
     __param(0, (0, common_1.Query)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [comer_events_dto_1.ComerEventDto]),
+    __metadata("design:paramtypes", [update_comer_events_entity_1.UpdateComerEventDto]),
     __metadata("design:returntype", Promise)
 ], ComerEventsController.prototype, "getComerEventByAddressAndId", null);
 __decorate([
