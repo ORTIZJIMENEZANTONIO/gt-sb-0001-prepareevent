@@ -1,5 +1,4 @@
-export declare class UpdateComerPropertyByBatchDto {
-    goodsLotIdToUpdt: number;
+export declare class UpdateComerGoodsXLotDto {
     goodsIdToUpdt: number;
     lotIdToUpdt: number;
 }
