@@ -1,3 +1,4 @@
+import { Transform } from "class-transformer";
 import {
   IsDateString,
   IsNotEmpty,
@@ -7,6 +8,7 @@ import {
   IsString,
   MaxLength,
 } from "class-validator";
+import { toDate } from "src/shared/common/helper/cast.helper";
 
 export class ComerConvEventDto {
   @IsNumber()
@@ -24,8 +26,8 @@ export class ComerConvEventDto {
   @IsOptional()
   description: string | null;
 
-  @IsDateString()
-  @IsOptional()
+  //@Transform(({ value }) => toDate(value))
+  //@IsOptional()
   dates: string | null;
 
   @IsString()

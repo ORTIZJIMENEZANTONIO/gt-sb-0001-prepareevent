@@ -1,6 +1,6 @@
 export declare class ComerGoodsXLotDto {
     goodsLotId: number;
-    goodsId: number;
+    goodId: number;
     lotId: number;
     baseValue: number | null;
     valueReferential: number | null;

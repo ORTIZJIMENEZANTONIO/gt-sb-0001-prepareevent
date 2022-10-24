@@ -22,6 +22,7 @@ const comer_rejected_property_module_1 = require("./modules/sera/comer-rejected-
 const comer_batch_module_1 = require("./modules/sera/comer-batch/comer-batch.module");
 const mandate_function_module_1 = require("./modules/sera/mandate-function/mandate-function.module");
 const file_util_module_1 = require("./modules/sera/file-util/file-util.module");
+const treatment_of_partial_returns_module_1 = require("./modules/sera/treatment-of-partial-returns/treatment-of-partial-returns.module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -60,6 +61,7 @@ AppModule = __decorate([
             comer_rejected_property_module_1.ComerRejectedPropertyModule,
             mandate_function_module_1.MandateFunctionModule,
             file_util_module_1.FileUtilModule,
+            treatment_of_partial_returns_module_1.TreatmentOfPartialReturnsModule,
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],

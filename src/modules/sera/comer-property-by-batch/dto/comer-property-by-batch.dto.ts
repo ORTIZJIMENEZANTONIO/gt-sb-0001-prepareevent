@@ -4,7 +4,7 @@ export class ComerGoodsXLotDto {
   @ApiProperty({ example: "No. bien por lote" })
   goodsLotId: number;
 
-  goodsId: number;
+  goodId: number;
 
   lotId: number;
 
