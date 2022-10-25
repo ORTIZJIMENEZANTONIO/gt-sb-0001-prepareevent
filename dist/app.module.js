@@ -23,6 +23,8 @@ const comer_batch_module_1 = require("./modules/sera/comer-batch/comer-batch.mod
 const mandate_function_module_1 = require("./modules/sera/mandate-function/mandate-function.module");
 const file_util_module_1 = require("./modules/sera/file-util/file-util.module");
 const treatment_of_partial_returns_module_1 = require("./modules/sera/treatment-of-partial-returns/treatment-of-partial-returns.module");
+const partial_property_delivered_module_1 = require("./modules/sera/partial-property-delivered/partial-property-delivered.module");
+const good_not_delivered_module_1 = require("./modules/sera/good-not-delivered/good-not-delivered.module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -62,6 +64,8 @@ AppModule = __decorate([
             mandate_function_module_1.MandateFunctionModule,
             file_util_module_1.FileUtilModule,
             treatment_of_partial_returns_module_1.TreatmentOfPartialReturnsModule,
+            partial_property_delivered_module_1.PartialPropertyDeliveredModule,
+            good_not_delivered_module_1.GoodNotDeliveredModule,
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],

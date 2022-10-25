@@ -20,7 +20,7 @@ let ComerBatchService = class ComerBatchService {
         this.proxy = proxy;
     }
     async createComerLot(comerEvent) {
-        const pattern = { cmd: "createComerEvent" };
+        const pattern = { cmd: "createComerLot" };
         return await this.proxy.send(pattern, comerEvent);
     }
     async getAllComersLot(pagination) {

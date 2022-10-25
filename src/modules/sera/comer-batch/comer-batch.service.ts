@@ -10,7 +10,7 @@ export class ComerBatchService {
   ) {}
 
   async createComerLot(comerEvent: ComerLotsDto) {
-    const pattern = { cmd: "createComerEvent" };
+    const pattern = { cmd: "createComerLot" };
     return await this.proxy.send(pattern, comerEvent);
   }
 

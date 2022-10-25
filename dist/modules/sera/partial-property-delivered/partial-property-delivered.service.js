@@ -12,22 +12,22 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.TreatmentOfPartialReturnsService = void 0;
+exports.PartialPropertyDeliveredService = void 0;
 const common_1 = require("@nestjs/common");
 const microservices_1 = require("@nestjs/microservices");
-let TreatmentOfPartialReturnsService = class TreatmentOfPartialReturnsService {
+let PartialPropertyDeliveredService = class PartialPropertyDeliveredService {
     constructor(proxy) {
         this.proxy = proxy;
     }
-    async treatmentOfPartialReturns(comer) {
-        const pattern = { cmd: "treatmentOfPartialReturns" };
-        return this.proxy.send(pattern, comer);
+    async createNewPartialGood(comer) {
+        const pattern = { cmd: "createNewPartialGood" };
+        return await this.proxy.send(pattern, comer);
     }
 };
-TreatmentOfPartialReturnsService = __decorate([
+PartialPropertyDeliveredService = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, common_1.Inject)("SERVICE_PREPAREEVENT")),
     __metadata("design:paramtypes", [microservices_1.ClientProxy])
-], TreatmentOfPartialReturnsService);
-exports.TreatmentOfPartialReturnsService = TreatmentOfPartialReturnsService;
-//# sourceMappingURL=treatment-of-partial-returns.service.js.map
+], PartialPropertyDeliveredService);
+exports.PartialPropertyDeliveredService = PartialPropertyDeliveredService;
+//# sourceMappingURL=partial-property-delivered.service.js.map

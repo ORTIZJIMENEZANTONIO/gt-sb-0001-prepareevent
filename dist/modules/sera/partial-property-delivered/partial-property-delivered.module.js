@@ -6,14 +6,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.TreatmentOfPartialReturnsModule = void 0;
+exports.PartialPropertyDeliveredModule = void 0;
 const common_1 = require("@nestjs/common");
 const microservices_1 = require("@nestjs/microservices");
-const treatment_of_partial_returns_controller_1 = require("./treatment-of-partial-returns.controller");
-const treatment_of_partial_returns_service_1 = require("./treatment-of-partial-returns.service");
-let TreatmentOfPartialReturnsModule = class TreatmentOfPartialReturnsModule {
+const partial_property_delivered_controller_1 = require("./partial-property-delivered.controller");
+const partial_property_delivered_service_1 = require("./partial-property-delivered.service");
+let PartialPropertyDeliveredModule = class PartialPropertyDeliveredModule {
 };
-TreatmentOfPartialReturnsModule = __decorate([
+PartialPropertyDeliveredModule = __decorate([
     (0, common_1.Module)({
         imports: [
             microservices_1.ClientsModule.register([
@@ -27,9 +27,9 @@ TreatmentOfPartialReturnsModule = __decorate([
                 },
             ]),
         ],
-        controllers: [treatment_of_partial_returns_controller_1.TreatmentOfPartialReturnsController],
-        providers: [treatment_of_partial_returns_service_1.TreatmentOfPartialReturnsService]
+        controllers: [partial_property_delivered_controller_1.PartialPropertyDeliveredController],
+        providers: [partial_property_delivered_service_1.PartialPropertyDeliveredService]
     })
-], TreatmentOfPartialReturnsModule);
-exports.TreatmentOfPartialReturnsModule = TreatmentOfPartialReturnsModule;
-//# sourceMappingURL=treatment-of-partial-returns.module.js.map
+], PartialPropertyDeliveredModule);
+exports.PartialPropertyDeliveredModule = PartialPropertyDeliveredModule;
+//# sourceMappingURL=partial-property-delivered.module.js.map

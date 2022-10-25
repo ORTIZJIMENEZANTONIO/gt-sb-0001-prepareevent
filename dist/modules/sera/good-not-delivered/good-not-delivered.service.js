@@ -12,22 +12,22 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.TreatmentOfPartialReturnsService = void 0;
+exports.GoodNotDeliveredService = void 0;
 const common_1 = require("@nestjs/common");
 const microservices_1 = require("@nestjs/microservices");
-let TreatmentOfPartialReturnsService = class TreatmentOfPartialReturnsService {
+let GoodNotDeliveredService = class GoodNotDeliveredService {
     constructor(proxy) {
         this.proxy = proxy;
     }
-    async treatmentOfPartialReturns(comer) {
-        const pattern = { cmd: "treatmentOfPartialReturns" };
+    updateGoodNotDeliveredToTheCanceledLot(comer) {
+        const pattern = { cmd: "updateGoodNotDeliveredToTheCanceledLot" };
         return this.proxy.send(pattern, comer);
     }
 };
-TreatmentOfPartialReturnsService = __decorate([
+GoodNotDeliveredService = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, common_1.Inject)("SERVICE_PREPAREEVENT")),
     __metadata("design:paramtypes", [microservices_1.ClientProxy])
-], TreatmentOfPartialReturnsService);
-exports.TreatmentOfPartialReturnsService = TreatmentOfPartialReturnsService;
-//# sourceMappingURL=treatment-of-partial-returns.service.js.map
+], GoodNotDeliveredService);
+exports.GoodNotDeliveredService = GoodNotDeliveredService;
+//# sourceMappingURL=good-not-delivered.service.js.map
