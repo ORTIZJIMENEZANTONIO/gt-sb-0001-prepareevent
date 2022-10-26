@@ -15,21 +15,20 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.TreatmentOfPartialReturnsController = void 0;
 const common_1 = require("@nestjs/common");
 const swagger_1 = require("@nestjs/swagger");
-const pagination_dto_1 = require("../../../shared/dto/pagination.dto");
 const treatment_of_partial_returns_service_1 = require("./treatment-of-partial-returns.service");
 let TreatmentOfPartialReturnsController = class TreatmentOfPartialReturnsController {
     constructor(service) {
         this.service = service;
     }
-    async treatmentOfPartialReturns(pagination) {
-        return await this.service.treatmentOfPartialReturns(pagination);
+    async treatmentOfPartialReturns(body) {
+        return await this.service.treatmentOfPartialReturns(body.goodNumber);
     }
 };
 __decorate([
     (0, common_1.Post)(),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [pagination_dto_1.PaginationDto]),
+    __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
 ], TreatmentOfPartialReturnsController.prototype, "treatmentOfPartialReturns", null);
 TreatmentOfPartialReturnsController = __decorate([

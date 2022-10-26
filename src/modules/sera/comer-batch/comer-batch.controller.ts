@@ -21,6 +21,7 @@ import {
 import { PaginationDto } from "src/shared/dto/pagination.dto";
 import { ComerBatchService } from "./comer-batch.service";
 import { ComerLotsDto } from "./dto/comer-batch.dto";
+import { ComerLotCanceledDto } from "./dto/comer-lot-canceled.dto";
 
 @ApiCreatedResponse()
 @Controller('comer-batch')
@@ -41,6 +42,21 @@ export class ComerBatchController {
   @Post()
   async createComerLot(@Body() comer: ComerLotsDto) {
     return await this.service.createComerLot(comer);
+  }
+
+  @ApiOperation({ summary: "CREAR LOTE CANCELADO CON EL BIEN VIEJO" })
+  @ApiBody({
+    type: ComerLotCanceledDto,
+    description: "Información de la Dirección a guardar",
+  })
+  @ApiResponse({
+    status: 200,
+    description: "Guarda Dirección",
+    type: ComerLotCanceledDto,
+  })
+  @Post("/lot-canceled")
+  async createComerLotCanceled(@Body() comer: ComerLotCanceledDto) {
+    return await this.service.createComerLotCanceled(comer);
   }
 
   @ApiOperation({ summary: "Obtener lista de todas las almacenes" })

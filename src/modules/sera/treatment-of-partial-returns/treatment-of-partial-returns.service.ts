@@ -8,7 +8,7 @@ export class TreatmentOfPartialReturnsService {
     @Inject("SERVICE_PREPAREEVENT") private readonly proxy: ClientProxy
   ) {}
 
-  async treatmentOfPartialReturns(comer) {
+  async treatmentOfPartialReturns(comer: number) {
     const pattern = { cmd: "treatmentOfPartialReturns" };
     return this.proxy.send(pattern, comer);
   }

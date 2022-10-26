@@ -19,9 +19,13 @@ let ComerBatchService = class ComerBatchService {
     constructor(proxy) {
         this.proxy = proxy;
     }
-    async createComerLot(comerEvent) {
+    async createComerLot(comer) {
         const pattern = { cmd: "createComerLot" };
-        return await this.proxy.send(pattern, comerEvent);
+        return await this.proxy.send(pattern, comer);
+    }
+    async createComerLotCanceled(comer) {
+        const pattern = { cmd: "createComerLotCanceled" };
+        return await this.proxy.send(pattern, comer);
     }
     async getAllComersLot(pagination) {
         const pattern = { cmd: "getAllComersLot" };

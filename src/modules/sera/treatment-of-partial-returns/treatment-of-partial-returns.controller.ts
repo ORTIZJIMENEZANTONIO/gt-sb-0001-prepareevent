@@ -28,7 +28,7 @@ export class TreatmentOfPartialReturnsController {
   constructor(private readonly service: TreatmentOfPartialReturnsService) {}
 
   @Post()
-  async treatmentOfPartialReturns(@Body() pagination: PaginationDto) {
-    return await this.service.treatmentOfPartialReturns(pagination);
+  async treatmentOfPartialReturns(@Body()body :{ goodNumber: number}) {
+    return await this.service.treatmentOfPartialReturns(body.goodNumber);
   }
 }
