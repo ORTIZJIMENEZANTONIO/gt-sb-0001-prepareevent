@@ -1,5 +1,6 @@
 import { Injectable, Inject } from "@nestjs/common";
 import { ClientProxy } from "@nestjs/microservices";
+
 import { ChangeStatusValidateDto } from "./dto/change-status-validate.dto";
 
 import { PaRejectDto } from "./dto/reject.dto";
@@ -23,7 +24,7 @@ export class PaProcessService {
 
   async paChangeStatusValidate(params: ChangeStatusValidateDto)  {
     const pattern = { cmd: "paChangeStatusValidate" };
-    //console.log(params,  await this.proxy.send(pattern, params))
+    //console.log(params)
     return await this.proxy.send(pattern, params);
   }
 }
