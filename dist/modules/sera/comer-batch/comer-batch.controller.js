@@ -18,12 +18,16 @@ const swagger_1 = require("@nestjs/swagger");
 const pagination_dto_1 = require("../../../shared/dto/pagination.dto");
 const comer_batch_service_1 = require("./comer-batch.service");
 const comer_batch_dto_1 = require("./dto/comer-batch.dto");
+const comer_lot_canceled_dto_1 = require("./dto/comer-lot-canceled.dto");
 let ComerBatchController = class ComerBatchController {
     constructor(service) {
         this.service = service;
     }
     async createComerLot(comer) {
         return await this.service.createComerLot(comer);
+    }
+    async createComerLotCanceled(comer) {
+        return await this.service.createComerLotCanceled(comer);
     }
     async getAllComersLot(pagination) {
         return await this.service.getAllComersLot(pagination);
@@ -49,6 +53,23 @@ __decorate([
     __metadata("design:paramtypes", [comer_batch_dto_1.ComerLotsDto]),
     __metadata("design:returntype", Promise)
 ], ComerBatchController.prototype, "createComerLot", null);
+__decorate([
+    (0, swagger_1.ApiOperation)({ summary: "CREAR LOTE CANCELADO CON EL BIEN VIEJO" }),
+    (0, swagger_1.ApiBody)({
+        type: comer_lot_canceled_dto_1.ComerLotCanceledDto,
+        description: "Información de la Dirección a guardar",
+    }),
+    (0, swagger_1.ApiResponse)({
+        status: 200,
+        description: "Guarda Dirección",
+        type: comer_lot_canceled_dto_1.ComerLotCanceledDto,
+    }),
+    (0, common_1.Post)("/lot-canceled"),
+    __param(0, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [comer_lot_canceled_dto_1.ComerLotCanceledDto]),
+    __metadata("design:returntype", Promise)
+], ComerBatchController.prototype, "createComerLotCanceled", null);
 __decorate([
     (0, swagger_1.ApiOperation)({ summary: "Obtener lista de todas las almacenes" }),
     (0, swagger_1.ApiResponse)({

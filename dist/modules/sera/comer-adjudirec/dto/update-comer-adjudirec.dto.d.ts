@@ -1,3 +1,3 @@
-export declare class ComerAdjudirecDto {
-    eventIdToUpdt: string;
+export declare class UpdateComerAdjudirecDto {
+    eventIdToUpdt: number;
 }

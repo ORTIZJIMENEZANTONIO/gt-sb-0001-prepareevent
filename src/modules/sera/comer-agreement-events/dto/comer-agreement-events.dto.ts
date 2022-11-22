@@ -1,3 +1,4 @@
+import { Transform, Type } from "class-transformer";
 import {
   IsDateString,
   IsNotEmpty,
@@ -8,38 +9,73 @@ import {
   MaxLength,
 } from "class-validator";
 
-export class ComerConvEventDto {
-  @IsNumber()
-  @IsPositive()
-  @IsNotEmpty()
-  eventId: number;
+import { Message } from "src/shared/validation-messages/message";
 
-  @IsNumber()
+export class ComerConvEventDto {
+  @Type(() => Number)
+  @IsNotEmpty({
+    message: Message.REQUIRED("$property"),
+  })
+  @IsNumber(
+    {},
+    {
+      message: Message.NUMBER("$property"),
+    }
+  )
+  @IsPositive({ message: Message.POSITIVE("$property") })
+  eventId: number;
+  
+  @Type(() => Number)
+  @IsNotEmpty({
+    message: Message.REQUIRED("$property"),
+  })
+  @IsNumber(
+    {},
+    {
+      message: Message.NUMBER("$property"),
+    }
+  )
   @IsPositive()
-  @IsNotEmpty()
   announcementEventId: number;
 
-  @IsString()
-  @MaxLength(200)
+  @Type(() => String)
   @IsOptional()
+  @IsString({ message: Message.STRING("$pŕopérty") })
+  @MaxLength(200, {
+    message: Message.MAX_LENGTH("$property", "$constraint1"),
+  })
   description: string | null;
 
-  @IsDateString()
+  @Type(() => String)
   @IsOptional()
+  @IsNotEmpty({ message: Message.REQUIRED("$property") })
+  @IsString({ message: Message.STRING("$pŕopérty") })
+  @MaxLength(70, {
+    message: Message.MAX_LENGTH("$property", "$constraint1"),
+  })
   dates: string | null;
 
-  @IsString()
-  @MaxLength(70)
+  @Type(() => String)
   @IsOptional()
+  @IsString({ message: Message.STRING("$pŕopérty") })
+  @MaxLength(70, {
+    message: Message.MAX_LENGTH("$property", "$constraint1"),
+  })
   schedule: string | null;
 
-  @IsString()
-  @MaxLength(200)
+  @Type(() => String)
   @IsOptional()
+  @IsString({ message: Message.STRING("$pŕopérty") })
+  @MaxLength(200, {
+    message: Message.MAX_LENGTH("$property", "$constraint1"),
+  })
   place: string | null;
 
-  @IsString()
-  @MaxLength(500)
+  @Type(() => String)
   @IsOptional()
+  @IsString({ message: Message.STRING("$pŕopérty") })
+  @MaxLength(500, {
+    message: Message.MAX_LENGTH("$property", "$constraint1"),
+  })
   restriction: string | null;
 }

@@ -1,5 +1,5 @@
 export declare class ComerClientDto {
-    clientId: number;
+    id: number | null;
     reasonName: string;
     rfc: string;
     sellerId: number | null;
@@ -7,7 +7,7 @@ export declare class ComerClientDto {
     city: string | null;
     colony: string | null;
     delegacion: string | null;
-    cp: string | null;
+    zipCode: string | null;
     country: string | null;
     fax: string | null;
     phone: string | null;
@@ -27,19 +27,19 @@ export declare class ComerClientDto {
     userFree: string | null;
     freeDate: Date | null;
     registerId: number | null;
-    economicActCve: string | null;
+    economicAgreementKey: string | null;
     identificationType: number | null;
     identificationNumber: string | null;
     agentId: number | null;
-    outsideNo: string | null;
-    insisdeNo: string | null;
+    outsideNumber: string | null;
+    insisdeNumber: string | null;
     password: string | null;
     user: string | null;
     interbankKey: string | null;
     bank: string | null;
     branch: string | null;
     checksAccount: string | null;
-    penaltyInDate: Date | null;
-    penaltyOutDate: Date | null;
+    penaltyInitDate: Date | null;
+    penaltyEndDate: Date | null;
     penalizeUser: string | null;
 }

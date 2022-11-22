@@ -1,4 +1,7 @@
+import { ApiProperty } from "@nestjs/swagger";
+import { Type } from "class-transformer";
 import {
+  IsDate,
   IsDateString,
   IsNotEmpty,
   IsNumber,
@@ -7,107 +10,234 @@ import {
   IsString,
   MaxLength,
 } from "class-validator";
+import { Message } from "src/shared/validation-messages/message";
 
 export class ComerAdjudirecDto {
-  @IsNumber()
-  @IsNotEmpty()
-  eventId: number;
-
-  @IsString()
-  @MaxLength(1)
+  @Type(() => Number)
   @IsOptional()
+  @IsNumber(
+    {},
+    {
+      message: Message.NUMBER("$property"),
+    }
+  )
+  @ApiProperty({ example: null, required: false })
+  id: number | null;
+
+  @Type(() => String)
+  @IsOptional()
+  @IsString({
+    message: Message.STRING("$property"),
+  })
+  @MaxLength(1, {
+    message: Message.MAX_LENGTH("$property", "$constraint1"),
+  })
+  @ApiProperty({ example: null, required: false, maxLength: 1 })
   committee: string | null;
 
-  @IsDateString()
+  @Type(() => Date)
   @IsOptional()
-  sessionDate: string | null;
+  @IsDate({
+    message: Message.IsDate("$property"),
+  })
+  @ApiProperty({ example: null, required: false })
+  sessionDate: Date | null;
 
-  @IsString()
-  @MaxLength(30)
+  @Type(() => String)
   @IsOptional()
+  @IsString({
+    message: Message.STRING("$property"),
+  })
+  @MaxLength(30, {
+    message: Message.MAX_LENGTH("$property", "$constraint1"),
+  })
+  @ApiProperty({ example: null, required: false, maxLength: 30 })
   noSession: string | null;
 
-  @IsString()
-  @MaxLength(30)
+  @Type(() => String)
   @IsOptional()
+  @IsString({
+    message: Message.STRING("$property"),
+  })
+  @MaxLength(30, {
+    message: Message.MAX_LENGTH("$property", "$constraint1"),
+  })
+  @ApiProperty({ example: null, required: false, maxLength: 30 })
   creationUser: string | null;
 
-  @IsString()
-  @MaxLength(30)
+  @Type(() => String)
   @IsOptional()
+  @IsString({
+    message: Message.STRING("$property"),
+  })
+  @MaxLength(30, {
+    message: Message.MAX_LENGTH("$property", "$constraint1"),
+  })
+  @ApiProperty({ example: null, required: false, maxLength: 30 })
   userWhoProposed: string | null;
 
-  @IsString()
-  @MaxLength(30)
+  @Type(() => String)
   @IsOptional()
+  @IsString({
+    message: Message.STRING("$property"),
+  })
+  @MaxLength(30, {
+    message: Message.MAX_LENGTH("$property", "$constraint1"),
+  })
+  @ApiProperty({ example: null, required: false, maxLength: 30 })
   userWhoFormulated: string | null;
 
-  @IsString()
-  @MaxLength(100)
+  @Type(() => String)
   @IsOptional()
+  @IsString({
+    message: Message.STRING("$property"),
+  })
+  @MaxLength(100, {
+    message: Message.MAX_LENGTH("$property", "$constraint1"),
+  })
+  @ApiProperty({ example: null, required: false, maxLength: 100 })
   physicalCondition: string | null;
 
-  @IsString()
-  @MaxLength(250)
+  @Type(() => String)
   @IsOptional()
+  @IsString({
+    message: Message.STRING("$property"),
+  })
+  @MaxLength(250, {
+    message: Message.MAX_LENGTH("$property", "$constraint1"),
+  })
+  @ApiProperty({ example: null, required: false, maxLength: 250 })
   observation: string | null;
 
-  @IsNumber()
-  @IsPositive()
+  @Type(() => Number)
   @IsOptional()
+  @IsNumber(
+    {},
+    {
+      message: Message.NUMBER("$property"),
+    }
+  )
+  @IsPositive()
+  @ApiProperty({ example: null, required: false })
   valudi: number | null;
 
-  @IsNumber()
-  @IsPositive()
+  @Type(() => Number)
   @IsOptional()
+  @IsNumber(
+    {},
+    {
+      message: Message.NUMBER("$property"),
+    }
+  )
+  @IsPositive()
+  @ApiProperty({ example: null, required: false })
   amountDis: number | null;
 
-  @IsString()
-  @MaxLength(2)
+  @Type(() => String)
   @IsOptional()
+  @IsString({
+    message: Message.STRING("$property"),
+  })
+  @MaxLength(2, {
+    message: Message.MAX_LENGTH("$property", "$constraint1"),
+  })
+  @ApiProperty({ example: null, required: false, maxLength: 2 })
   tendered: string | null;
 
-  @IsDateString()
+  @Type(() => Date)
   @IsOptional()
-  udiDate: string | null;
+  @IsDate({
+    message: Message.IsDate("$property"),
+  })
+  @ApiProperty({ example: null, required: false })
+  udiDate: Date | null;
 
-  @IsString()
-  @MaxLength(7)
+  @Type(() => String)
   @IsOptional()
+  @IsString({
+    message: Message.STRING("$property"),
+  })
+  @MaxLength(50, {
+    message: Message.MAX_LENGTH("$property", "$constraint1"),
+  })
+  @ApiProperty({ example: null, required: false, maxLength: 50 })
   wayToPay: string | null;
 
-  @IsString()
-  @MaxLength(7)
+  @Type(() => String)
   @IsOptional()
+  @IsString({
+    message: Message.STRING("$property"),
+  })
+  @MaxLength(800, {
+    message: Message.MAX_LENGTH("$property", "$constraint1"),
+  })
+  @ApiProperty({ example: null, required: false, maxLength: 800 })
   text1: string | null;
 
-  @IsString()
-  @MaxLength(7)
+  @Type(() => String)
   @IsOptional()
+  @IsString({
+    message: Message.STRING("$property"),
+  })
+  @MaxLength(100, {
+    message: Message.MAX_LENGTH("$property", "$constraint1"),
+  })
+  @ApiProperty({ example: null, required: false, maxLength: 100 })
   text2: string | null;
 
-  @IsString()
-  @MaxLength(7)
+  @Type(() => String)
   @IsOptional()
+  @IsString({
+    message: Message.STRING("$property"),
+  })
+  @MaxLength(1500, {
+    message: Message.MAX_LENGTH("$property", "$constraint1"),
+  })
+  @ApiProperty({ example: null, required: false, maxLength: 1500 })
   text3: string | null;
 
-  @IsString()
-  @MaxLength(7)
+  @Type(() => String)
   @IsOptional()
+  @IsString({
+    message: Message.STRING("$property"),
+  })
+  @MaxLength(30, {
+    message: Message.MAX_LENGTH("$property", "$constraint1"),
+  })
+  @ApiProperty({ example: null, required: false, maxLength: 30 })
   receptionDate: string | null;
 
-  @IsString()
-  @MaxLength(7)
+  @Type(() => String)
   @IsOptional()
+  @IsString({
+    message: Message.STRING("$property"),
+  })
+  @MaxLength(50, {
+    message: Message.MAX_LENGTH("$property", "$constraint1"),
+  })
+  @ApiProperty({ example: null, required: false, maxLength: 50 })
   bookValue: string | null;
 
-  @IsNumber()
-  @IsPositive()
+  @Type(() => Number)
   @IsOptional()
+  @IsNumber(
+    {},
+    {
+      message: Message.NUMBER("$property"),
+    }
+  )
+  @IsPositive()
+  @ApiProperty({ example: null, required: false })
   valMaxUdi: number | null;
 
-  @IsString()
-  @MaxLength(7)
+  @Type(() => String)
   @IsOptional()
+  @IsString({
+    message: Message.STRING("$property"),
+  })
+  @MaxLength(100, {
+    message: Message.MAX_LENGTH("$property", "$constraint1"),
+  })
+  @ApiProperty({ example: null, required: false, maxLength: 100 })
   cause: string | null;
 }

@@ -16,12 +16,12 @@ exports.FileUtilController = void 0;
 const common_1 = require("@nestjs/common");
 const swagger_1 = require("@nestjs/swagger");
 const file_util_service_1 = require("./file-util.service");
+const third_file_dto_1 = require("./dto/third-file.dto");
+const good_price_dto_1 = require("./dto/good-price.dto");
+const third_base_file_dto_1 = require("./dto/third-base-file.dto");
 let FileUtilController = class FileUtilController {
     constructor(service) {
         this.service = service;
-    }
-    async createComerClient() {
-        return await this.service.createXlsx();
     }
     async createThirdFile(params) {
         return await this.service.createThirdFile(params.eventId, params.fileName);
@@ -34,30 +34,51 @@ let FileUtilController = class FileUtilController {
     }
 };
 __decorate([
-    (0, common_1.Get)(),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", Promise)
-], FileUtilController.prototype, "createComerClient", null);
-__decorate([
+    (0, swagger_1.ApiOperation)({ summary: "Obtiene archivo excel" }),
+    (0, swagger_1.ApiBody)({
+        type: third_file_dto_1.ThirdFileDto,
+        description: "createThirdFile",
+    }),
+    (0, swagger_1.ApiResponse)({
+        status: 200,
+        description: "Retorna path del archivo",
+    }),
     (0, common_1.Post)("/third-file"),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
+    __metadata("design:paramtypes", [third_file_dto_1.ThirdFileDto]),
     __metadata("design:returntype", Promise)
 ], FileUtilController.prototype, "createThirdFile", null);
 __decorate([
+    (0, swagger_1.ApiOperation)({ summary: "Obtiene archivo excel" }),
+    (0, swagger_1.ApiBody)({
+        type: third_base_file_dto_1.ThirdBaseFileDto,
+        description: "createThirdBaseFile",
+    }),
+    (0, swagger_1.ApiResponse)({
+        status: 200,
+        description: "Retorna path del archivo",
+    }),
     (0, common_1.Post)("/third-base-file"),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
+    __metadata("design:paramtypes", [third_base_file_dto_1.ThirdBaseFileDto]),
     __metadata("design:returntype", Promise)
 ], FileUtilController.prototype, "createThirdBaseFile", null);
 __decorate([
+    (0, swagger_1.ApiOperation)({ summary: "Obtiene archivo excel con precio de bienes" }),
+    (0, swagger_1.ApiBody)({
+        type: good_price_dto_1.GoodPriceDto,
+        description: "calculateGoodPrice",
+    }),
+    (0, swagger_1.ApiResponse)({
+        status: 200,
+        description: "Retorna path del archivo",
+    }),
     (0, common_1.Post)("/calculate-good-price"),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
+    __metadata("design:paramtypes", [good_price_dto_1.GoodPriceDto]),
     __metadata("design:returntype", Promise)
 ], FileUtilController.prototype, "calculateGoodPrice", null);
 FileUtilController = __decorate([

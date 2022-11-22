@@ -13,42 +13,49 @@ const winston = require("winston");
 const path = require("path");
 const app_service_1 = require("./app.service");
 const app_controller_1 = require("./app.controller");
-const comer_events_module_1 = require("./modules/sera/comer-events/comer-events.module");
+const comer_events_module_1 = require("./modules/sera/comer-event/comer-events.module");
 const comer_adjudirec_module_1 = require("./modules/sera/comer-adjudirec/comer-adjudirec.module");
 const comer_agreement_events_module_1 = require("./modules/sera/comer-agreement-events/comer-agreement-events.module");
 const comer_client_module_1 = require("./modules/sera/comer-client/comer-client.module");
-const comer_property_by_batch_module_1 = require("./modules/sera/comer-property-by-batch/comer-property-by-batch.module");
+const comer_property_by_batch_module_1 = require("./modules/sera/comer-property-by-lot/comer-property-by-batch.module");
 const comer_rejected_property_module_1 = require("./modules/sera/comer-rejected-property/comer-rejected-property.module");
-const comer_batch_module_1 = require("./modules/sera/comer-batch/comer-batch.module");
+const comer_batch_module_1 = require("./modules/sera/comer-lot/comer-batch.module");
 const mandate_function_module_1 = require("./modules/sera/mandate-function/mandate-function.module");
 const file_util_module_1 = require("./modules/sera/file-util/file-util.module");
+const treatment_of_partial_returns_module_1 = require("./modules/sera/treatment-of-partial-returns/treatment-of-partial-returns.module");
+const partial_property_delivered_module_1 = require("./modules/sera/partial-property-delivered/partial-property-delivered.module");
+const good_not_delivered_module_1 = require("./modules/sera/good-not-delivered/good-not-delivered.module");
+const pa_process_module_1 = require("./modules/sera/pa-process/pa-process.module");
+const current_event_module_1 = require("./modules/sera/current-event/current-event.module");
+const core_1 = require("@nestjs/core");
+const exception_interceptor_1 = require("./core/exception.interceptor");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     (0, common_1.Module)({
         imports: [
             nest_winston_1.WinstonModule.forRoot({
-                level: 'debug',
+                level: "debug",
                 format: winston.format.combine(winston.format.timestamp({
-                    format: 'YYYY-MM-DD HH:mm:ss',
+                    format: "YYYY-MM-DD HH:mm:ss",
                 }), winston.format.errors({ stack: true }), winston.format.splat(), winston.format.json()),
                 transports: [
                     new winston.transports.File({
-                        dirname: path.join(__dirname, './../log/debug/'),
-                        filename: 'debug.log',
-                        level: 'debug',
+                        dirname: path.join(__dirname, "./../log/debug/"),
+                        filename: "debug.log",
+                        level: "debug",
                     }),
                     new winston.transports.File({
-                        dirname: path.join(__dirname, './../log/error/'),
-                        filename: 'error.log',
-                        level: 'error',
+                        dirname: path.join(__dirname, "./../log/error/"),
+                        filename: "error.log",
+                        level: "error",
                     }),
                     new winston.transports.File({
-                        dirname: path.join(__dirname, './../log/info/'),
-                        filename: 'info.log',
-                        level: 'info',
+                        dirname: path.join(__dirname, "./../log/info/"),
+                        filename: "info.log",
+                        level: "info",
                     }),
-                    new winston.transports.Console({ level: 'debug' }),
+                    new winston.transports.Console({ level: "debug" }),
                 ],
             }),
             comer_events_module_1.ComerEventsModule,
@@ -60,9 +67,17 @@ AppModule = __decorate([
             comer_rejected_property_module_1.ComerRejectedPropertyModule,
             mandate_function_module_1.MandateFunctionModule,
             file_util_module_1.FileUtilModule,
+            treatment_of_partial_returns_module_1.TreatmentOfPartialReturnsModule,
+            partial_property_delivered_module_1.PartialPropertyDeliveredModule,
+            good_not_delivered_module_1.GoodNotDeliveredModule,
+            pa_process_module_1.PaProcessModule,
+            current_event_module_1.CurrentEventModule,
         ],
         controllers: [app_controller_1.AppController],
-        providers: [app_service_1.AppService],
+        providers: [
+            app_service_1.AppService,
+            { provide: core_1.APP_FILTER, useClass: exception_interceptor_1.AllExceptionsFilter },
+        ],
     })
 ], AppModule);
 exports.AppModule = AppModule;

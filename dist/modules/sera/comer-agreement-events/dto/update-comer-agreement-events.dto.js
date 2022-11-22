@@ -11,11 +11,34 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UpdateComerConvEventDto = void 0;
 const swagger_1 = require("@nestjs/swagger");
+const class_transformer_1 = require("class-transformer");
+const class_validator_1 = require("class-validator");
+const message_1 = require("../../../../shared/validation-messages/message");
 class UpdateComerConvEventDto {
 }
 __decorate([
-    (0, swagger_1.ApiProperty)({ example: "ex" }),
-    __metadata("design:type", String)
-], UpdateComerConvEventDto.prototype, "idEvent", void 0);
+    (0, class_transformer_1.Type)(() => Number),
+    (0, class_validator_1.IsNotEmpty)({
+        message: message_1.Message.REQUIRED("$property"),
+    }),
+    (0, class_validator_1.IsNumber)({}, {
+        message: message_1.Message.NUMBER("$property"),
+    }),
+    (0, class_validator_1.IsPositive)(),
+    (0, swagger_1.ApiProperty)({ example: 1 }),
+    __metadata("design:type", Number)
+], UpdateComerConvEventDto.prototype, "eventIdToUpdt", void 0);
+__decorate([
+    (0, class_transformer_1.Type)(() => Number),
+    (0, class_validator_1.IsNotEmpty)({
+        message: message_1.Message.REQUIRED("$property"),
+    }),
+    (0, class_validator_1.IsNumber)({}, {
+        message: message_1.Message.NUMBER("$property"),
+    }),
+    (0, class_validator_1.IsPositive)(),
+    (0, swagger_1.ApiProperty)({ example: 1 }),
+    __metadata("design:type", Number)
+], UpdateComerConvEventDto.prototype, "announcementEventIdToUpdt", void 0);
 exports.UpdateComerConvEventDto = UpdateComerConvEventDto;
 //# sourceMappingURL=update-comer-agreement-events.dto.js.map
