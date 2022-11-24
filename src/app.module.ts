@@ -21,6 +21,7 @@ import { PaProcessModule } from "./modules/sera/pa-process/pa-process.module";
 import { CurrentEventModule } from "./modules/sera/current-event/current-event.module";
 import { APP_FILTER } from "@nestjs/core";
 import { AllExceptionsFilter } from "./core/exception.interceptor";
+import { ComerSentenceDispersionModule } from './modules/sera/comer-sentence-dispersion/comer-sentence-dispersion.module';
 @Module({
   imports: [
     WinstonModule.forRoot({
@@ -66,6 +67,7 @@ import { AllExceptionsFilter } from "./core/exception.interceptor";
     GoodNotDeliveredModule,
     PaProcessModule,
     CurrentEventModule,
+    ComerSentenceDispersionModule,
   ],
   controllers: [AppController],
   providers: [
