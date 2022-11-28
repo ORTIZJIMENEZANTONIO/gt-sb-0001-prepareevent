@@ -29,6 +29,7 @@ const pa_process_module_1 = require("./modules/sera/pa-process/pa-process.module
 const current_event_module_1 = require("./modules/sera/current-event/current-event.module");
 const core_1 = require("@nestjs/core");
 const exception_interceptor_1 = require("./core/exception.interceptor");
+const comer_sentence_dispersion_module_1 = require("./modules/sera/comer-sentence-dispersion/comer-sentence-dispersion.module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -72,6 +73,7 @@ AppModule = __decorate([
             good_not_delivered_module_1.GoodNotDeliveredModule,
             pa_process_module_1.PaProcessModule,
             current_event_module_1.CurrentEventModule,
+            comer_sentence_dispersion_module_1.ComerSentenceDispersionModule,
         ],
         controllers: [app_controller_1.AppController],
         providers: [
